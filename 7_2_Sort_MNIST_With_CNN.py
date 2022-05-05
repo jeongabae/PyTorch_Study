@@ -210,8 +210,7 @@ for epoch in range(training_epochs):
 [Epoch:   15] cost = 0.00588585297
 """
 
-#테스트
-# 학습을 진행하지 않을 것이므로 torch.no_grad()
+#테스트 # 학습을 진행하지 않을 것이므로 torch.no_grad()
 with torch.no_grad():
     X_test = mnist_test.test_data.view(len(mnist_test), 1, 28, 28).float().to(device)
     Y_test = mnist_test.test_labels.to(device)
@@ -220,3 +219,4 @@ with torch.no_grad():
     correct_prediction = torch.argmax(prediction, 1) == Y_test
     accuracy = correct_prediction.float().mean()
     print('Accuracy:', accuracy.item()) #Accuracy: 0.9883000254631042 #98퍼의 정확도
+
